@@ -34,7 +34,7 @@ async function handler(req: Request) {
   console.log({ url });
 
   const svg = await satori(markup("500"), {
-    height: 200,
+    height: 30,
     fonts: [
       {
         name: "Outfit",
