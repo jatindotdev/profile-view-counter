@@ -1,4 +1,4 @@
-import { LocalStorage } from "https://deno.land/x/storage@0.0.5/mod.ts";
+import { LocalStorage } from "./storage/local-storage.ts";
 
 const db = new LocalStorage<string>("db.json");
 
