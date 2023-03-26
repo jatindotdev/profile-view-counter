@@ -48,6 +48,7 @@ const markup = ({
 
 async function handler(req: Request) {
   const url = new URL(req.url);
+  console.log(localStorage);
   // get first path segment
   const key = url.pathname.split("/")[1];
 
