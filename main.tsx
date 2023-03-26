@@ -34,22 +34,19 @@ async function handler(req: Request) {
     fonts: [
       {
         name: "Outfit",
-        data: Deno.readFileSync("./fonts/outfit-regular.ttf")
-          .buffer as ArrayBuffer,
+        data: (await Deno.readFile("./fonts/outfit-regular.ttf")).buffer,
         style: "normal",
         weight: 400,
       },
       {
         name: "Outfit",
-        data: Deno.readFileSync("./fonts/outfit-medium.ttf")
-          .buffer as ArrayBuffer,
+        data: (await Deno.readFile("./fonts/outfit-medium.ttf")).buffer,
         style: "normal",
         weight: 600,
       },
       {
         name: "Outfit",
-        data: Deno.readFileSync("./fonts/outfit-bold.ttf")
-          .buffer as ArrayBuffer,
+        data: (await Deno.readFile("./fonts/outfit-bold.ttf")).buffer,
         style: "normal",
         weight: 800,
       },
