@@ -51,6 +51,7 @@ async function handler(req: Request) {
   return new Response(svg, {
     headers: {
       "content-type": "image/svg+xml",
+      "cache-control": "max-age=0, no-cache, no-store, must-revalidate",
     },
   });
 }
