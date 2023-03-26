@@ -30,7 +30,7 @@ const markup = (count: string) => (
 );
 
 async function handler(req: Request) {
-  console.log({ ref: req.headers.get("referer") });
+  console.log({ ref: req.headers.get("Referer") });
 
   const randomNumber = Math.round(Math.random() * 500).toString();
 
