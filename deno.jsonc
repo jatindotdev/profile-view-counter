@@ -1,13 +1,5 @@
 {
   "tasks": {
     "dev": "deno run -A --watch main.ts"
-  },
-  "imports": {
-    "preact/jsx-runtime": "https://cdn.skypack.dev/preact/jsx-runtime?dts",
-    "preact/jsx-dev-runtime": "https://cdn.skypack.dev/preact/jsx-dev-runtime?dts"
-  },
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact"
   }
 }

@@ -1,7 +1,10 @@
 /* @jsxImportSource https://esm.sh/react@18.2.0 */
 
-import { satori, serve } from "./deps.ts";
-import { readFileSync } from "node:fs";
+import { init, initYoga, satori, serve, wasm } from "./deps.ts";
+
+init(
+  await (initYoga as unknown as (wasm: Uint8Array) => Promise<unknown>)(wasm)
+);
 
 const opts = {
   port: 3000,
@@ -28,8 +31,6 @@ const markup = (count: string) => (
 async function handler(req: Request) {
   const url = new URL(req.url);
 
-  const fontData = readFileSync("./fonts/outfit-regular.ttf");
-
   console.log({ url });
 
   const svg = await satori(markup("500"), {
@@ -37,7 +38,7 @@ async function handler(req: Request) {
     fonts: [
       {
         name: "Outfit",
-        data: fontData,
+        data: await Deno.readFile("./fonts/outfit-regular.ttf"),
         style: "normal",
         weight: 400,
       },
