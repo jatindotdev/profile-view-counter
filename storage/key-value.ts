@@ -1,5 +1,6 @@
 type key = string | number;
-interface keyValue<T> {
+
+export interface keyValue<T> {
   [key: string]: T;
   [key: number]: T;
 }
