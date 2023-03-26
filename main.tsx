@@ -34,7 +34,9 @@ async function handler(req: Request) {
 
   console.log({ url });
 
-  const svg = await satori(markup("500"), {
+  const randomNumber = Math.round(Math.random() * 500).toString();
+
+  const svg = await satori(markup(randomNumber), {
     height: 30,
     fonts: [
       {
