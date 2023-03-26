@@ -15,6 +15,7 @@ const markup = (count: string) => (
     style={{
       all: "unset",
       display: "flex",
+      height: "30px",
       justifyContent: "center",
       alignItems: "center",
       backgroundColor: "#fd5d5d",
