@@ -30,9 +30,9 @@ const markup = (count: string) => (
 );
 
 async function handler(req: Request) {
-  const url = new URL(req.url);
+  // const url = new URL(req.url);
 
-  console.log({ url });
+  console.log(req);
 
   const randomNumber = Math.round(Math.random() * 500).toString();
 
