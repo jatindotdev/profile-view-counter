@@ -14,11 +14,11 @@ const markup = (count: string) => (
       justifyContent: "center",
       alignItems: "center",
       backgroundColor: "#fd5d5d",
-      padding: "0.5px 2px 0.5px",
+      padding: "2px 8px 4px",
       textDecoration: "none",
       color: "#fff",
-      borderRadius: "1.5px",
-      fontSize: "4px",
+      borderRadius: "6px",
+      fontSize: "18px",
     }}>
     {count} views
   </div>
@@ -27,6 +27,8 @@ const markup = (count: string) => (
 async function handler(req: Request) {
   const url = new URL(req.url);
 
+  const fontData = await Deno.readFile("./fonts/outfit-regular.ttf");
+
   console.log({ url });
 
   const svg = await satori(markup("500"), {
@@ -34,21 +36,9 @@ async function handler(req: Request) {
     fonts: [
       {
         name: "Outfit",
-        data: (await Deno.readFile("./fonts/outfit-regular.ttf")).buffer,
+        data: fontData.buffer,
         style: "normal",
         weight: 400,
-      },
-      {
-        name: "Outfit",
-        data: (await Deno.readFile("./fonts/outfit-medium.ttf")).buffer,
-        style: "normal",
-        weight: 600,
-      },
-      {
-        name: "Outfit",
-        data: (await Deno.readFile("./fonts/outfit-bold.ttf")).buffer,
-        style: "normal",
-        weight: 800,
       },
     ],
   });
