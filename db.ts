@@ -1,6 +1,6 @@
-import { openKVDb } from "https://deno.land/x/kv_sqlite@v0.1.7/mod.ts";
+import { LocalStorage } from "https://deno.land/x/storage@0.0.5/mod.ts";
 
-const db = openKVDb("db.sqlite3");
+const db = new LocalStorage<string>("db.json");
 
 // Get the count for a specific item by name
 export function getCount(name: string): string {
@@ -11,6 +11,7 @@ export function getCount(name: string): string {
 export function incrementCount(name: string) {
   const count = parseInt(getCount(name)) + 1;
   db.set(name, count.toString());
+  db.save();
 }
 
 // Get all items in the database
@@ -27,4 +28,5 @@ export function getAll() {
 
 export function eraseAll() {
   db.clear();
+  db.save();
 }
